@@ -1,0 +1,70 @@
+Primary Text (main body text)
+
+Dark neutral, not pure black — easier on the eyes.
+
+Charcoal / Dark Gray: #1F2933 or #222222
+✔ Best for paragraphs, long reads
+✔ Works with any blue
+
+🧭 Headings & Important Labels
+
+Go slightly bolder to create hierarchy.
+
+Near-black: #0F172A
+
+Deep Navy: #0A2540
+✔ Looks intentional next to blue buttons
+✔ Feels premium and modern
+
+🔗 Links & Interactive Text
+
+Match or complement your button blue.
+
+Standard Blue: #2563EB
+
+Slightly muted blue: #1D4ED8
+
+Hover state: #1E40AF
+
+💡 Tip: Underline on hover instead of always — cleaner look.
+
+⚠️ Accent / Highlight Text
+
+For “attention” moments that aren’t buttons.
+
+Teal: #0D9488 (great with blue)
+
+Amber: #F59E0B (warnings, emphasis)
+
+Rose / Red: #DC2626 (errors only — use sparingly)
+
+🧩 Secondary / Helper Text
+
+For placeholders, captions, metadata.
+
+Cool gray: #6B7280
+
+Lighter gray: #9CA3AF
+
+⚠️ Don’t go lighter than this or accessibility suffers.
+
+✅ Accessibility Quick Check
+
+Aim for:
+
+Body text: Contrast ratio ≥ 4.5:1
+
+Headings: ≥ 3:1
+Tools like WebAIM Contrast Checker help a ton.
+
+🎨 Example Combo (clean & popular)
+
+Body text: #1F2933
+
+Headings: #0A2540
+
+Links: #2563EB
+
+Buttons: #2563EB (white text)
+
+Muted text: #6B7280

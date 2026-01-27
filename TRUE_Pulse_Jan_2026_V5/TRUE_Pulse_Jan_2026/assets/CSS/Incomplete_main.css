@@ -1,0 +1,494 @@
+﻿/* ===== RESET & GLOBAL BASICS ===== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+color: #333;
+line-height: 1.6;
+}
+
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+/* ===== GLOBAL HELPERS & UTILITIES ===== */
+
+section { padding: 80px 6%; }
+
+
+h1, h2, h3 { color: #0f172a; }
+
+
+.section-intro {
+max-width: 720px;
+margin: 12px auto 48px;
+text-align: center;
+color: #475569;
+font-size: 1.05rem;
+}
+
+
+/* Animation helpers */
+.animate { opacity: 0; }
+.animate.show {
+opacity: 1;
+transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+
+/* ===== HEADER ===== */
+.site-header {
+position: sticky;
+top: 0;
+background: #fff;
+border-bottom: 1px solid #eaeaea;
+z-index: 1000;
+}
+
+
+.nav-container {
+max-width: 1200px;
+margin: auto;
+padding: 0 20px;
+height: 70px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+/* ===== Logo ===== */
+
+/* Logo container */
+.logo {
+display: flex;
+align-items: center;
+/* font-size: 20px;*/ /* DUPLICATE */ 
+/*font-weight: bold;*/ /* DUPLICATE */
+}
+
+.logo-img { 
+height: 40px; 
+width: auto; }
+.logo-text { 
+font-size: 20px; 
+font-weight: 700; 
+}
+
+/* ===== NAV MENU, DROPDOWNS, CTA ===== */
+
+.nav-menu {
+list-style: none;
+display: flex;
+}
+
+.dropdown { display: none; }
+.has-dropdown:hover .dropdown { display: block; }
+
+.cta {
+background: #0066ff;
+color: #fff;
+border-radius: 4px;
+}
+
+    /* ===== Hamburger ===== */
+    .nav-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: #333;
+    }
+
+    /* ===== Mobile Nav ===== */
+    .main-nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .main-nav.active {
+      display: block;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-menu li {
+      border-top: 1px solid #f1f1f1;
+    }
+
+    .nav-menu a,
+    .dropdown-toggle {
+      padding: 16px 20px;
+      display: block;
+      background: none;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+
+      .has-dropdown {
+        position: relative;
+      }
+	/* ===== Nav Action Buttons ===== */
+	.nav-actions {
+	  display: none; /* hidden on mobile by default */
+	  align-items: center;
+	  gap: 12px;
+	}
+
+@media (min-width: 992px) {
+  .nav-actions {
+    display: flex;
+    margin-left: 24px; /* spacing from nav menu */
+  }
+}
+
+    /* ===== Desktop ===== */
+    @media (min-width: 992px) {
+      .nav-toggle {
+        display: none;
+      }
+
+      .main-nav {
+        display: block;
+        position: static;
+        border: none;
+      }
+
+      .nav-menu {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .nav-menu li {
+        border: none;
+      }
+
+      .nav-menu a,
+      .dropdown-toggle {
+        padding: 8px 0;
+      }
+
+      .has-dropdown {
+        position: relative;
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 220px;
+        background: #fff;
+        border: 1px solid #eaeaea;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      }
+
+      .dropdown a {
+        padding: 10px 16px;
+      }
+
+      .has-dropdown:hover .dropdown {
+        display: block;
+      }
+
+      .cta {
+        margin: 0;
+        padding: 8px 16px;
+      }
+    }
+
+
+/* ===== Phone Number in Header ===== */
+.phone-number {
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  margin-right: 12px;       /* space between phone and login button */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.phone-number:hover {
+  color: #0066ff;           /* hover highlight for professional feel */
+}
+
+    /* ===== Navigation Hover States ===== */
+
+	/* Top-level menu hover (desktop) */
+	@media (min-width: 992px) {
+	  .nav-menu > li > a,
+	  .nav-menu > li > .dropdown-toggle {
+	    position: relative;
+	    transition: color 0.2s ease;
+	  }
+	
+	  .nav-menu > li > a::after,
+	  .nav-menu > li > .dropdown-toggle::after {
+	    content: "";
+	    position: absolute;
+	    left: 0;
+	    bottom: -6px;
+	    width: 0;
+	    height: 2px;
+	    background: #0066ff;
+	    transition: width 0.25s ease;
+	  }
+	
+	  .nav-menu > li:hover > a,
+	  .nav-menu > li:hover > .dropdown-toggle {
+	    color: #0066ff;
+	  }
+	
+	  .nav-menu > li:hover > a::after,
+	  .nav-menu > li:hover > .dropdown-toggle::after {
+	    width: 100%;
+	  }
+	}
+	
+	/* Dropdown item hover */
+	.dropdown a {
+	  transition: background 0.2s ease, color 0.2s ease;
+	}
+	
+	.dropdown a:hover {
+	  background: #f0f4ff;
+	  color: #0066ff;
+	}
+	
+	/* Mobile tap feedback */
+	.nav-menu a:active,
+	.dropdown-toggle:active {
+	  background: #f1f5ff;
+	}
+
+
+/* ===== BUTTON SYSTEM ===== */
+/* ===== Nav Action Buttons ===== */
+	.nav-actions {
+	  display: none; /* hidden on mobile by default */
+	  align-items: center;
+	  gap: 12px;
+	}
+
+@media (min-width: 992px) {
+  .nav-actions {
+    display: flex;
+    margin-left: 24px; /* spacing from nav menu */
+  }
+}
+	.btn {
+	  min-width: 140px;
+	  font-size: 14px;
+	  padding: 10px 42px;
+	  text-align: center;
+	  white-space: nowrap;
+	  border-radius: 4px;
+	  font-weight: 600;
+	  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+	}
+.btn-login {
+  color: #333;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+}
+
+.btn-login:hover {
+  background: #f5f7fa;
+}
+.btn-demo {
+  background: #0066ff;
+  color: #fff;
+  border: 1px solid #0066ff;
+}
+
+.btn-demo:hover {
+  background: #004fcc;
+  border-color: #004fcc;
+}
+
+
+.hero-cta .btn {
+  min-width: 160px;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 12px 26px;
+}
+
+.intro-cta .btn {
+  min-width: 160px;
+  padding: 12px 26px;
+}
+
+
+
+/* ===== HERO SECTION ===== */
+
+.hero {
+display: grid; 
+grid-template-columns: 1.1fr 1fr;
+align-items: center;
+gap: 60px;
+
+}
+
+/* ===== Intro Section ===== */
+.intro-section {
+  background: #ffffff;
+  padding: 80px 20px;
+}
+
+.intro-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.intro-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.intro-lead {
+  font-size: 18px;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto 48px auto;
+  line-height: 1.6;
+}
+
+/* Features Grid */
+.intro-features {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.feature {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+.feature-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.feature h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.feature p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* CTA */
+.intro-cta .btn {
+  min-width: 160px;
+  padding: 12px 26px;
+}
+
+
+
+
+
+/* ===== FEATURES & CARDS ===== */
+
+.feature { padding: 20px; }
+.feature { opacity: 0; transform: translateY(20px); }
+
+
+.feature-card {
+background: #fff;
+padding: 24px;
+}
+
+
+.feature-card {
+border: 1px solid #e2e8f0; /* overrides earlier */
+}
+
+/* ===== TESTIMONIALS ===== */
+
+.testimonial-card {
+background: #fff;
+padding: 28px;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+
+.whatsapp-float {
+position: fixed;
+bottom: 20px;
+right: 20px;
+}
+
+/* ===== TIMELINE / HOW IT WORKS ===== */
+
+.call-tracking-timeline {
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+  padding: 20px 20px 100px;
+  margin: 0;
+  text-align: center;
+
+}
+
+/* Centered section heading */
+.call-tracking-timeline h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #0f172a;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Constrain timeline width (not the section) */
+.call-tracking-timeline .timeline,
+.call-tracking-timeline .timeline-content {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+

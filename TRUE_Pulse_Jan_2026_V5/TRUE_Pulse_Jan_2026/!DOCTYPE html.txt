@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- metadata, title, links, scripts -->
+</head>
+
+<body>
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="site-header">
+    <!-- logo + nav -->
+  </header>
+
+  <main>
+    <!-- page content -->
+  </main>
+
+  <footer>
+    <!-- footer content -->
+  </footer>
+
+</body>
+</html>
