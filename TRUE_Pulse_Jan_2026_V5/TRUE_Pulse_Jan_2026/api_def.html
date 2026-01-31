@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Call Tracking API Integration | TRUE Pulse</title>
+  <meta name="description" content="Integrate TRUE Pulse call tracking using our secure, flexible REST APIs. Access call data, events, and attribution to build custom workflows and integrations.">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TRUE Pulse Standard API Integrations">
+  <meta property="og:description" content="Build custom call tracking integrations using TRUE Pulse APIs. Secure, scalable, and developer-friendly.">
+  <meta property="og:url" content="https://truepulse.co.in/api_def.html">
+  <meta property="og:image" content="https://truepulse.co.in/assets/images/og-image.png">
+
+  <link rel="icon" href="assets/Images/favicon.ico" type="image/x-icon">
+  <link rel="preload" href="assets/css/main.css" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/main.css">
+  </noscript>
+
+  <link rel="canonical" href="https://truepulse.co.in/api_def.html">
+</head>
+
+<body class="api-def-body">
+
+<!-- ================= HEADER & NAVIGATION ================= -->
+ <script src="assets/js/header.js"></script>
+<!-- <header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img 
+        src="assets/Images/tp_logo.svg" 
+        alt=""
+        class="logo-img"
+        onerror="this.hidden=true; this.nextElementSibling.hidden=false;"
+      >
+      <span class="logo-text" hidden>TRUE Pulse</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav">
+      <ul class="nav-menu">
+
+        <li class="has-dropdown">
+          <button class="dropdown-toggle">Services</button>
+          <ul class="dropdown">
+            <li><a href="call_tracking.html">Call Tracking</a></li>
+            <li><a href="form_tracking.html">Form Tracking</a></li>
+            <li><a href="lead_management.html">Lead Management</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <button class="dropdown-toggle">Use Cases</button>
+          <ul class="dropdown">
+            <li><a href="auto_dealers.html">Automotive</a></li>
+            <li><a href="media_agencies.html">Media Agency</a></li>
+            <li><a href="insurance.html">Insurance</a></li>
+            <li><a href="real_estate.html">Real Estate</a></li>
+            <li><a href="health.html">Healthcare & Wellness</a></li>
+            <li><a href="travel.html">Travel & Hospitality</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="home_services.html">Home Services</a></li>
+            <li><a href="other_services.html">Other B2B Services</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <button class="dropdown-toggle">Integrations</button>
+          <ul class="dropdown">
+            <li><a href="salesforce.html">Salesforce</a></li>
+            <li><a href="google_analytics.html">Google Analytics</a></li>
+            <li><a href="google_ads.html">Google Ads</a></li>
+            <li><a href="zapier.html">Zapier</a></li>
+            <li><a href="api.html">API</a></li>
+          </ul>
+        </li>
+
+        <li><a href="pricing.html">Pricing</a></li>
+
+        <li class="has-dropdown">
+          <button class="dropdown-toggle">Our Company</button>
+          <ul class="dropdown">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="partnerships.html">Partner With Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="tel:+917204464475" class="phone-number">+91 72044 64475</a>
+      <a href="https://app.truepulse.co.in/" class="btn btn-login">Login</a>
+      <a href="demo.html" class="btn btn-demo">Get a Demo</a>
+    </div>
+  </div>
+</header> -->
+
+<div class="api-def-header">
+  <div class="api-def-header-container">
+  <h1 class="api-def-header-title">True Pulse Call Tracking – Webhook Integration Guide</h1>
+  <p class="api-def-header-subtitle">
+    Step-by-step guidance to integrate your system with True Pulse via webhook
+  </p>
+  </div>
+</div>
+
+<main class="api-def-container">
+
+  <!-- 1. Overview -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">1. Overview</h2>
+    <p class="api-def-text">
+      This document provides step-by-step guidance to help you integrate your system with
+      <strong>True Pulse Call Tracking</strong> via webhook.
+    </p>
+    <ul class="api-def-list">
+      <li class="api-def-list-item">
+        Your system must trigger a webhook immediately after each call ends on tracking numbers.
+      </li>
+      <li class="api-def-list-item">
+        True Pulse receives the call data, processes it, and responds with success or error.
+      </li>
+    </ul>
+  </section>
+
+  <!-- 2. Webhook Event -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">2. Webhook Event</h2>
+    <p class="api-def-text"><strong>Event Name:</strong> End of the Phone Call</p>
+    <p class="api-def-text">
+      The webhook must be triggered immediately at the end of each call for all tracking DID numbers,
+      irrespective of whether the call was answered or abandoned.
+    </p>
+  </section>
+
+  <!-- 3. Endpoint -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">3. Endpoint URL</h2>
+    <!-- <p class="api-def-text">Integration testing endpoint:</p>
+    <div class="api-def-info-box">
+      https://script.google.com/macros/s/AKfycbziD97mXO6d7fJzB-vd6d74ZHjp6Z9wU4MtbC4r618Uf4HAYIYcxl9jmCkLQ3edBERJg/exec
+    </div> -->
+    <p class="api-def-text">
+      <strong>Note:</strong> Production endpoint will be shared by the True Pulse team.
+    </p>
+  </section>
+
+  <!-- 4. Request Format -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">4. Request Method and Format</h2>
+    <ul class="api-def-list">
+      <li class="api-def-list-item"><strong>HTTP Method:</strong> POST</li>
+      <li class="api-def-list-item"><strong>Content Type:</strong> application/json</li>
+      <li class="api-def-list-item"><strong>Authentication:</strong> None required</li>
+    </ul>
+  </section>
+
+  <!-- 5. Payload -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">5. Webhook Payload</h2>
+
+    <pre class="api-def-code-block"><code>{
+  "tpCallID": "9884420011",
+  "tpCustomerID": "78521",
+  "tpCustomerName": "ASG",
+  "tpCallerNumber": "9841012345",
+  "tpDIDNumber": "02269112345",
+  "tpDateOfCall": "23-10-2025",
+  "tpCallStartTime": "2025-10-23T04:26:31.05Z",
+  "tpCallEndTime": "2025-10-23T04:37:31.05Z",
+  "tpDTMF": "51",
+  "tpCallStatus": "Answered",
+  "tpCallRecordingPath": "https://domainname.com/ASG/Recordings/abc-1234.wav"
+}</code></pre>
+
+    <h3 class="api-def-subtitle">Field Descriptions</h3>
+
+    <table class="api-def-table">
+      <thead class="api-def-table-head">
+        <tr>
+          <th class="api-def-table-cell">Field Name</th>
+          <th class="api-def-table-cell">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="api-def-table-cell">tpCallID</td><td class="api-def-table-cell">Unique ID for the call</td></tr>
+        <tr><td class="api-def-table-cell">tpCustomerID</td><td class="api-def-table-cell">Unique customer identifier</td></tr>
+        <tr><td class="api-def-table-cell">tpCustomerName</td><td class="api-def-table-cell">Customer or account name</td></tr>
+        <tr><td class="api-def-table-cell">tpCallerNumber</td><td class="api-def-table-cell">Caller phone number</td></tr>
+        <tr><td class="api-def-table-cell">tpDIDNumber</td><td class="api-def-table-cell">Dialed tracking number</td></tr>
+        <tr><td class="api-def-table-cell">tpDateOfCall</td><td class="api-def-table-cell">Date of the call</td></tr>
+        <tr><td class="api-def-table-cell">tpCallStartTime</td><td class="api-def-table-cell">Call start time (UTC)</td></tr>
+        <tr><td class="api-def-table-cell">tpCallEndTime</td><td class="api-def-table-cell">Call end time (UTC)</td></tr>
+        <tr><td class="api-def-table-cell">tpDTMF</td><td class="api-def-table-cell">DTMF input (if applicable)</td></tr>
+        <tr><td class="api-def-table-cell">tpCallStatus</td><td class="api-def-table-cell">Answered, Missed, Busy, Abandoned</td></tr>
+        <tr><td class="api-def-table-cell">tpCallRecordingPath</td><td class="api-def-table-cell">URL of call recording</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 6. Response -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">6. Expected Response</h2>
+
+    <p class="api-def-status-success">Success Response</p>
+    <pre class="api-def-code-block"><code>{
+  "status": "SUCCESS",
+  "message": "Data added successfully."
+}</code></pre>
+
+    <p class="api-def-status-error">Error Response</p>
+    <pre class="api-def-code-block"><code>{
+  "status": "ERROR",
+  "message": "Detailed error message"
+}</code></pre>
+  </section>
+
+  <!-- 7. Retry Policy -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">7. Delivery and Retry Policy</h2>
+    <ul class="api-def-list">
+      <li class="api-def-list-item">Webhook must fire immediately after each call ends</li>
+      <li class="api-def-list-item">Retry until SUCCESS is received</li>
+      <li class="api-def-list-item">Use tpCallID for idempotency</li>
+      <li class="api-def-list-item">Notify support for persistent failures</li>
+    </ul>
+  </section>
+
+  <!-- 8. Error Handling -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">8. Error Handling and Escalation</h2>
+    <ol class="api-def-list">
+      <li class="api-def-list-item">Log full error response</li>
+      <li class="api-def-list-item">Share logs with True Pulse support</li>
+      <li class="api-def-list-item">Continue retries until success</li>
+    </ol>
+  </section>
+
+  <!-- 9. Testing -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">9. Testing the Integration</h2>
+    <ol class="api-def-list">
+      <li class="api-def-list-item">Webhook triggers for answered & abandoned calls</li>
+      <li class="api-def-list-item">Payload structure matches specification</li>
+      <li class="api-def-list-item">SUCCESS response received</li>
+      <li class="api-def-list-item">Errors are logged and retried</li>
+    </ol>
+  </section>
+
+  <!-- 10. Contact -->
+  <section class="api-def-card">
+    <h2 class="api-def-section-title">10. Contact and Support</h2>
+    <p class="api-def-text"><strong>Email:</strong> support@truepulse.com</p>
+    <p class="api-def-text"><strong>Phone:</strong> +91 7204464475</p>
+  </section>
+
+</main>
+
+<!-- <footer class="api-def-footer">
+  © True Pulse Call Tracking • Integration Documentation
+</footer> -->
+
+<!-- ================= FOOTER ================= -->
+<!-- ================= FOOTER ================= -->
+<!-- <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>Product & Learning</h4>
+      <ul>
+        <li><a href="why_phone_calls.html">Why Phone Calls Still Matter</a></li>
+        <li><a href="call_tracking.html">Call Tracking</a></li>
+        <li><a href="form_tracking.html">Form Tracking</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="free_trial.html">Start Free Trial</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Use Cases</h4>
+      <ul>
+        <li><a href="auto_dealers.html">Automotive Dealers</a></li>
+        <li><a href="media_agencies.html">Media Agency</a></li>
+        <li><a href="insurance.html">Insurance Businesses</a></li>
+        <li><a href="real_estate.html">Real Estate & Construction</a></li>
+        <li><a href="health.html">Healthcare & Wellness</a></li>
+        <li><a href="travel.html">Travel & Hospitality</a></li>
+        <li><a href="education.html">Education Industry</a></li>
+        <li><a href="home_services.html">Home Services</a></li>
+        <li><a href="other_services.html">Other B2B Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Integrations</h4>
+      <ul>
+        <li><a href="salesforce.html">Salesforce</a></li>
+        <li><a href="google_analytics.html">Google Analytics</a></li>
+        <li><a href="google_ads.html">Google Ads</a></li>
+        <li><a href="zapier.html">Zapier</a></li>
+        <li><a href="api.html">API</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="partnerships.html">Partner With Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Legal & Access</h4>
+      <ul>
+        <li><a href="https://app.truepulse.co.in/">Login</a></li>
+        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+        <li><a href="refund_policy.html">Refund Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 TRUE Pulse. All rights reserved.</p>
+  </div>
+</footer>
+
+<a
+  href="https://wa.me/917204464475"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Chat with us on WhatsApp"
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+  />
+</a> -->
+<script src="assets/js/footer.js"></script>
+<script src="assets/js/main.js" defer></script>
+
+</body>
+</html>

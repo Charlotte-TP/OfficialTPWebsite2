@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Interactive Call Tracking ROI Demo</title>
+
+<style>
+.iroi-container {
+  font-family: Inter, Arial, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  padding: 40px;
+}
+
+.iroi-container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.iroi-container p.iroi-subtitle {
+  max-width: 900px;
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+.iroi-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.iroi-toggle {
+  position: relative;
+  width: 56px;
+  height: 30px;
+}
+
+.iroi-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.iroi-slider {
+  position: absolute;
+  inset: 0;
+  background: #cbd5f5;
+  border-radius: 999px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.iroi-slider:before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.iroi-toggle input:checked + .iroi-slider {
+  background: #2563eb;
+}
+
+.iroi-toggle input:checked + .iroi-slider:before {
+  transform: translateX(26px);
+}
+
+.iroi-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+}
+
+.iroi-container th, .iroi-container td {
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.iroi-container th {
+  background: #020617;
+  color: #ffffff;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.iroi-container tr:hover {
+  background: #f1f5f9;
+}
+
+.iroi-campaign {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.iroi-tooltip {
+  position: fixed;
+  max-width: 320px;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  display: none;
+  z-index: 1000;
+}
+
+.iroi-tooltip strong {
+  color: #38bdf8;
+}
+</style>
+</head>
+
+<body>
+<div class="iroi-container">
+<h1>Why Call Tracking Changes Marketing Decisions</h1>
+<p class="iroi-subtitle">
+Hover over each campaign to see how optimization decisions change when phone calls are measured.
+</p>
+
+<div class="iroi-toggle-wrap">
+  <strong>Attribution View</strong>
+  <label class="iroi-toggle">
+    <input type="checkbox" id="iroiCallToggle" checked />
+    <span class="iroi-slider"></span>
+  </label>
+  <span id="iroiToggleLabel">Forms + Calls</span>
+</div>
+
+<p class="iroi-subtitle">
+  Toggle between <strong>Forms Only</strong> and <strong>Forms + Calls</strong> to see how the same campaigns lead to completely different — and often opposite — marketing decisions.
+</p>
+
+<table>
+<thead>
+<tr>
+  <th>Campaign</th>
+  <th>Spend ($)</th>
+  <th>Clicks</th>
+  <th>Form Leads</th>
+  <th>Call Leads</th>
+  <th>Cost / Lead ($)</th>
+  <th>Revenue ($)</th>
+  <th>ROI %</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr data-tooltip="brand"
+    data-revenue-forms="14000"
+    data-revenue-calls="36000"
+    data-call-leads="120">
+  <td class="iroi-campaign">Brand Search</td>
+  <td class="iroi-spend">5,000</td>
+  <td>2,500</td>
+  <td class="iroi-form-leads">50</td>
+  <td class="iroi-call-leads">120</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="generic"
+    data-revenue-forms="12000"
+    data-revenue-calls="13500"
+    data-call-leads="15">
+  <td class="iroi-campaign">Generic Search (Non-Brand)</td>
+  <td class="iroi-spend">6,000</td>
+  <td>3,000</td>
+  <td class="iroi-form-leads">90</td>
+  <td class="iroi-call-leads">15</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="competitor"
+    data-revenue-forms="8000"
+    data-revenue-calls="10500"
+    data-call-leads="10">
+  <td class="iroi-campaign">Competitor Search</td>
+  <td class="iroi-spend">3,500</td>
+  <td>1,800</td>
+  <td class="iroi-form-leads">40</td>
+  <td class="iroi-call-leads">10</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="facebook"
+    data-revenue-forms="9000"
+    data-revenue-calls="11000"
+    data-call-leads="6">
+  <td class="iroi-campaign">Facebook Ads</td>
+  <td class="iroi-spend">5,500</td>
+  <td>7,200</td>
+  <td class="iroi-form-leads">140</td>
+  <td class="iroi-call-leads">6</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="youtube"
+    data-revenue-forms="8500"
+    data-revenue-calls="11000"
+    data-call-leads="12">
+  <td class="iroi-campaign">YouTube Ads</td>
+  <td class="iroi-spend">6,200</td>
+  <td>5,500</td>
+  <td class="iroi-form-leads">55</td>
+  <td class="iroi-call-leads">12</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="remarketing"
+    data-revenue-forms="11000"
+    data-revenue-calls="26000"
+    data-call-leads="70">
+  <td class="iroi-campaign">Remarketing (All Channels)</td>
+  <td class="iroi-spend">3,000</td>
+  <td>1,200</td>
+  <td class="iroi-form-leads">45</td>
+  <td class="iroi-call-leads">70</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+</tbody>
+</table>
+
+<div id="iroiTooltip" class="iroi-tooltip"></div>
+</div>
+<script>
+const iroiTooltip = document.getElementById("iroiTooltip");
+const iroiToggle = document.getElementById("iroiCallToggle");
+const iroiToggleLabel = document.getElementById("iroiToggleLabel");
+
+const insights = {
+  brand: {
+    noTracking: "<strong>Without call tracking:</strong><br>Brand looks expensive based on form CPL alone.",
+    withTracking: "<strong>With call tracking:</strong><br>Calls dramatically lower true CPL and drive revenue."
+  },
+  generic: {
+    noTracking: "<strong>Without call tracking:</strong><br>Looks efficient due to form volume.",
+    withTracking: "<strong>With call tracking:</strong><br>Limited incremental value from calls."
+  },
+  competitor: {
+    noTracking: "<strong>Without call tracking:</strong><br>Marginal CPL seems acceptable.",
+    withTracking: "<strong>With call tracking:</strong><br>Call quality limits true scalability."
+  },
+  facebook: {
+    noTracking: "<strong>Without call tracking:</strong><br>Low CPL creates false confidence.",
+    withTracking: "<strong>With call tracking:</strong><br>Mostly top-of-funnel impact."
+  },
+  youtube: {
+    noTracking: "<strong>Without call tracking:</strong><br>CPL appears high with unclear returns.",
+    withTracking: "<strong>With call tracking:</strong><br>Supports awareness, not direct acquisition."
+  },
+  remarketing: {
+    noTracking: "<strong>Without call tracking:</strong><br>Average CPL masks strong intent.",
+    withTracking: "<strong>With call tracking:</strong><br>One of the lowest true CPL channels."
+  }
+};
+
+function updateTable(showCalls) {
+  document.querySelectorAll(".iroi-container tbody tr").forEach(row => {
+    const iroiSpend = Number(row.querySelector(".iroi-spend").innerText.replace(/,/g,""));
+    const iroiFormLeads = Number(row.querySelector(".iroi-form-leads").innerText);
+    const iroiCallLeads = showCalls ? Number(row.dataset.callLeads) : 0;
+    const totalLeads = iroiFormLeads + iroiCallLeads;
+
+    const iroiRevenue = showCalls ? row.dataset.revenueCalls : row.dataset.revenueForms;
+    const iroiCpl = iroiSpend / totalLeads;
+    const iroiRoi = Math.round(((iroiRevenue - iroiSpend) / iroiSpend) * 100);
+
+    row.querySelector(".iroi-call-leads").innerText = iroiCallLeads;
+    row.querySelector(".iroi-cpl").innerText = "$" + iroiCpl.toFixed(2);
+    row.querySelector(".iroi-revenue").innerText = "$" + Number(iroiRevenue).toLocaleString();
+    row.querySelector(".iroi-roi").innerText = iroiRoi + "%";
+  });
+
+  iroiToggleLabel.innerText = showCalls ? "Forms + Calls" : "Forms Only";
+}
+
+iroiToggle.addEventListener("change", () => updateTable(iroiToggle.checked));
+updateTable(true);
+
+document.querySelectorAll("tbody tr").forEach(row => {
+  row.addEventListener("mousemove", e => {
+    const key = row.dataset.tooltip;
+    iroiTooltip.innerHTML =
+      insights[key].noTracking +
+      "<hr style='margin:10px 0;border-color:#334155'>" +
+      insights[key].withTracking;
+
+    iroiTooltip.style.display = "block";
+    iroiTooltip.style.left = e.clientX + 15 + "px";
+    iroiTooltip.style.top = e.clientY + 15 + "px";
+  });
+
+  row.addEventListener("mouseleave", () => iroiTooltip.style.display = "none");
+});
+</script>
+
+</body>
+</html>

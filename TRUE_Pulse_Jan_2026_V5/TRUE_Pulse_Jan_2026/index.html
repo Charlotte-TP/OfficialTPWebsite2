@@ -28,7 +28,9 @@
 <body>
 
 <!-- ================= HEADER & NAVIGATION ================= -->
-<header class="site-header">
+<script src="assets/js/header.js"></script>
+
+<!-- <header class="site-header">
   <div class="nav-container">
     <a href="index.html" class="logo">
        <img 
@@ -99,15 +101,15 @@
       </ul>
     </nav>
     <div class="nav-actions">
-    <a href="tel:+917204464475" class="phone-number">+91 72044 64475</a>
-  	<a href="https://app.truepulse.co.in/" class="btn btn-login">Login</a>
+  	<a href="tel:+917204464475" class="btn btn-login">+91 72044 64475</a>
   	<a href="demo.html" class="btn btn-demo">Get a Demo</a>
 	</div>
   </div>
 
-</header>
+</header> -->
 
 <main>
+<div class="hero-container">
 <section class="hero">
   <div class="hero-content">
     <h1 class="hero-rotator" aria-live="polite">
@@ -146,6 +148,7 @@
     <img src="assets/Images/dashboard-illustration.png" loading="lazy" alt="TRUE Pulse call tracking dashboard with real-time analytics and call attribution">
   </div>
 </section>
+</div>
 
 <section class="call-tracking-timeline">
   <h2>How Call Tracking Works</h2>
@@ -219,6 +222,139 @@
     <p id="timeline-description"></p>
   </div>
 </section>
+
+<!-- ************************** INTERACTIVE CAL TRACKING ROI DEMO START ************************** -->
+
+<div class="iroi-container">
+<!-- <div class="iroi-header"> -->
+<h1>Why Call Tracking Changes Marketing Decisions</h1>
+<p class="iroi-subtitle">
+Hover over each campaign to see how optimization decisions change when phone calls are measured.
+</p>
+
+<div class="iroi-toggle-wrap">
+  <strong>Attribution View</strong>
+  <label class="iroi-toggle">
+    <input type="checkbox" id="iroiCallToggle" checked />
+    <span class="iroi-slider"></span>
+  </label>
+  <span id="iroiToggleLabel">Forms + Calls</span>
+</div>
+
+<p class="iroi-subtitle">
+  Toggle between <strong>Forms Only</strong> and <strong>Forms + Calls</strong> to see how the same campaigns lead to completely different — and often opposite — marketing decisions.
+</p>
+<!-- </div> -->
+<div class="iroi-table-wrap">
+<table>
+<thead>
+<tr>
+  <th>Campaign</th>
+  <th>Spend ($)</th>
+  <th>Clicks</th>
+  <th>Form Leads</th>
+  <th>Call Leads</th>
+  <th>Cost / Lead ($)</th>
+  <th>Revenue ($)</th>
+  <th>ROI %</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr data-tooltip="brand"
+    data-revenue-forms="14000"
+    data-revenue-calls="36000"
+    data-call-leads="120">
+  <td class="iroi-campaign">Brand Search</td>
+  <td class="iroi-spend">5,000</td>
+  <td>2,500</td>
+  <td class="iroi-form-leads">50</td>
+  <td class="iroi-call-leads">120</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="generic"
+    data-revenue-forms="12000"
+    data-revenue-calls="13500"
+    data-call-leads="15">
+  <td class="iroi-campaign">Generic Search (Non-Brand)</td>
+  <td class="iroi-spend">6,000</td>
+  <td>3,000</td>
+  <td class="iroi-form-leads">90</td>
+  <td class="iroi-call-leads">15</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="competitor"
+    data-revenue-forms="8000"
+    data-revenue-calls="10500"
+    data-call-leads="10">
+  <td class="iroi-campaign">Competitor Search</td>
+  <td class="iroi-spend">3,500</td>
+  <td>1,800</td>
+  <td class="iroi-form-leads">40</td>
+  <td class="iroi-call-leads">10</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="facebook"
+    data-revenue-forms="9000"
+    data-revenue-calls="11000"
+    data-call-leads="6">
+  <td class="iroi-campaign">Facebook Ads</td>
+  <td class="iroi-spend">5,500</td>
+  <td>7,200</td>
+  <td class="iroi-form-leads">140</td>
+  <td class="iroi-call-leads">6</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="youtube"
+    data-revenue-forms="8500"
+    data-revenue-calls="11000"
+    data-call-leads="12">
+  <td class="iroi-campaign">YouTube Ads</td>
+  <td class="iroi-spend">6,200</td>
+  <td>5,500</td>
+  <td class="iroi-form-leads">55</td>
+  <td class="iroi-call-leads">12</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+<tr data-tooltip="remarketing"
+    data-revenue-forms="11000"
+    data-revenue-calls="26000"
+    data-call-leads="70">
+  <td class="iroi-campaign">Remarketing (All Channels)</td>
+  <td class="iroi-spend">3,000</td>
+  <td>1,200</td>
+  <td class="iroi-form-leads">45</td>
+  <td class="iroi-call-leads">70</td>
+  <td class="iroi-cpl"></td>
+  <td class="iroi-revenue"></td>
+  <td class="iroi-roi"></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div id="iroiTooltip" class="iroi-tooltip"></div>
+</div>
+
+<!-- ************************** INTERACTIVE CAL TRACKING ROI DEMO END ************************** -->
+
 
 
 </main>
@@ -420,9 +556,8 @@
 </section>
 
 
-<footer class="site-footer">
+<!-- <footer class="site-footer">
   <div class="footer-container">
-    <!-- Column 1: Product & Education -->
     <div class="footer-column">
       <h4>Product & Learning</h4>
       <ul>
@@ -434,7 +569,6 @@
       </ul>
     </div>
 
-    <!-- Column 2: Use Cases -->
     <div class="footer-column">
       <h4>Use Cases</h4>
       <ul>
@@ -450,7 +584,6 @@
       </ul>
     </div>
 
-    <!-- Column 3: Integrations -->
     <div class="footer-column">
       <h4>Integrations</h4>
       <ul>
@@ -462,7 +595,6 @@
       </ul>
     </div>
 
-    <!-- Column 4: Company -->
     <div class="footer-column">
       <h4>Company</h4>
       <ul>
@@ -473,7 +605,6 @@
       </ul>
     </div>
 
-    <!-- Column 5: Legal & Access -->
     <div class="footer-column">
       <h4>Legal & Access</h4>
       <ul>
@@ -485,7 +616,6 @@
     </div>
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footer-bottom">
     <p>&copy; 2026 TRUE Pulse. All rights reserved.</p>
   </div>
@@ -501,9 +631,9 @@
     src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
     alt="WhatsApp"
   />
-</a>
+</a> -->
 
-
+<script src="assets/js/footer.js"></script>
 <script src="assets/js/main.js" defer></script>
 <script>
 window.addEventListener("load", () => {
@@ -618,6 +748,81 @@ window.addEventListener("load", () => {
   ================================ */
   setActiveStep(0);
   startAutoplay();
+</script>
+
+<script>
+  /* ===============================
+     INTERACTIVE CAL TRACKING ROI DEMO
+  ================================ */
+const iroiTooltip = document.getElementById("iroiTooltip");
+const iroiToggle = document.getElementById("iroiCallToggle");
+const iroiToggleLabel = document.getElementById("iroiToggleLabel");
+
+const insights = {
+  brand: {
+    noTracking: "<strong>Without call tracking:</strong><br>Brand looks expensive based on form CPL alone.",
+    withTracking: "<strong>With call tracking:</strong><br>Calls dramatically lower true CPL and drive revenue."
+  },
+  generic: {
+    noTracking: "<strong>Without call tracking:</strong><br>Looks efficient due to form volume.",
+    withTracking: "<strong>With call tracking:</strong><br>Limited incremental value from calls."
+  },
+  competitor: {
+    noTracking: "<strong>Without call tracking:</strong><br>Marginal CPL seems acceptable.",
+    withTracking: "<strong>With call tracking:</strong><br>Call quality limits true scalability."
+  },
+  facebook: {
+    noTracking: "<strong>Without call tracking:</strong><br>Low CPL creates false confidence.",
+    withTracking: "<strong>With call tracking:</strong><br>Mostly top-of-funnel impact."
+  },
+  youtube: {
+    noTracking: "<strong>Without call tracking:</strong><br>CPL appears high with unclear returns.",
+    withTracking: "<strong>With call tracking:</strong><br>Supports awareness, not direct acquisition."
+  },
+  remarketing: {
+    noTracking: "<strong>Without call tracking:</strong><br>Average CPL masks strong intent.",
+    withTracking: "<strong>With call tracking:</strong><br>One of the lowest true CPL channels."
+  }
+};
+
+function updateTable(showCalls) {
+  document.querySelectorAll(".iroi-container tbody tr").forEach(row => {
+    const iroiSpend = Number(row.querySelector(".iroi-spend").innerText.replace(/,/g,""));
+    const iroiFormLeads = Number(row.querySelector(".iroi-form-leads").innerText);
+    const iroiCallLeads = showCalls ? Number(row.dataset.callLeads) : 0;
+    const totalLeads = iroiFormLeads + iroiCallLeads;
+
+    const iroiRevenue = showCalls ? row.dataset.revenueCalls : row.dataset.revenueForms;
+    const iroiCpl = iroiSpend / totalLeads;
+    const iroiRoi = Math.round(((iroiRevenue - iroiSpend) / iroiSpend) * 100);
+
+    row.querySelector(".iroi-call-leads").innerText = iroiCallLeads;
+    row.querySelector(".iroi-cpl").innerText = "$" + iroiCpl.toFixed(2);
+    row.querySelector(".iroi-revenue").innerText = "$" + Number(iroiRevenue).toLocaleString();
+    row.querySelector(".iroi-roi").innerText = iroiRoi + "%";
+  });
+
+  iroiToggleLabel.innerText = showCalls ? "Forms + Calls" : "Forms Only";
+}
+
+iroiToggle.addEventListener("change", () => updateTable(iroiToggle.checked));
+updateTable(true);
+
+document.querySelectorAll("tbody tr").forEach(row => {
+  row.addEventListener("mousemove", e => {
+    const key = row.dataset.tooltip;
+    iroiTooltip.innerHTML =
+      insights[key].noTracking +
+      "<hr style='margin:10px 0;border-color:#334155'>" +
+      insights[key].withTracking;
+
+    iroiTooltip.style.display = "block";
+    iroiTooltip.style.left = e.clientX + 15 + "px";
+    iroiTooltip.style.top = e.clientY + 15 + "px";
+  });
+
+  row.addEventListener("mouseleave", () => iroiTooltip.style.display = "none");
+});
 </script>
 
 

@@ -25,7 +25,8 @@
 <body>
 
 <!-- ================= HEADER & NAVIGATION ================= -->
-<header class="site-header">
+ <script src="assets/js/header.js"></script>
+<!-- <header class="site-header">
   <div class="nav-container">
     <a href="index.html" class="logo">
       <img 
@@ -100,11 +101,12 @@
       <a href="demo.html" class="btn btn-demo">Get a Demo</a>
     </div>
   </div>
-</header>
+</header> -->
 
 <main>
 
 <!-- ================= HERO ================= -->
+<div class="hero-container">
 <section class="hero">
   <div class="hero-content">
     <h1>Salesforce Call Tracking & CRM Integration</h1>
@@ -125,8 +127,31 @@
          alt="TRUE Pulse Salesforce call tracking integration">
   </div>
 </section>
+</div>
 
+<div class="overview-grid">
+  <section class="overview-left">
+    <div class="overview-side-block">
+    <h4>Resources</h4>
+    <hr/>
+    <a href="salesforce_guide.html">Setup Salesforce Integration</a>
+    <br/>
+    <h4>Developer Links</h4>
+    <hr/>
+    <a class="dev-integration-links" href="https://www.salesforce.com/">
+      <img src = "assets/Images/Integrations/web_icon.svg">
+      Salesforce website</a>
+    <a class="dev-integration-links" href="https://www.salesforce.com/company/legal/">
+      <img src = "assets/Images/Integrations/legal.svg">
+      Terms / Policy</a>
+    </div>
+  </section>
+
+  <div class="overview-right">
+
+<!-- ******************************** OLD VERSION START ************************************ -->
 <!-- ================= OVERVIEW ================= -->
+
 <section class="usecase-section">
   <h2>Bring Phone Calls Into Your Salesforce CRM</h2>
   <p>
@@ -254,13 +279,145 @@
   <a href="demo.html" class="btn btn-demo">Book a Demo</a>
 </section>
 
+<!-- ******************************** OLD VERSION END ************************************ -->
+<!-- ******************************** NEW VERSION START ************************************ -->
+<!-- <div class="" -->
+<!-- <div class="overview-grid">
+  <section class="overview-left">
+    <div class="overview-side-block">
+    place holder
+    </div>
+  </section>
+
+  <div class="overview-right">
+    <section class="integration-overview">
+      <h2>Salesforce CRM Integration</h2>
+
+      <p>
+        Connect your marketing activity directly to revenue by syncing calls, texts,
+        and form submissions with Salesforce. This integration ensures every customer
+        interaction is automatically logged, giving your sales and marketing teams a
+        single source of truth.
+      </p>
+
+      <p>
+        By linking customer conversations to leads, contacts, and opportunities,
+        you gain full visibility into how marketing efforts contribute to pipeline
+        growth and closed deals.
+      </p>
+    </section>
+
+    <section class="integration-how-it-works">
+      <h3>How the Integration Works</h3>
+
+      <p>
+        Customer interactions are automatically pushed into Salesforce in real time,
+        eliminating manual data entry and reducing lead response times.
+      </p>
+
+      <ul>
+        <li>
+          Phone calls, text messages, and form submissions are logged as activities
+          on leads, contacts, or opportunities.
+        </li>
+        <li>
+          Call recordings, timestamps, and source details are attached directly
+          within Salesforce records for easy reference.
+        </li>
+      </ul>
+    </section>
+
+    <section class="integration-features">
+      <h3>Key Benefits</h3>
+
+      <div class="integration-feature">
+        <h4>Unified Lead Management</h4>
+        <p>
+          Keep all customer interactions in one place so sales teams have the
+          full context they need to convert leads faster.
+        </p>
+      </div>
+
+      <div class="integration-feature">
+        <h4>Revenue Attribution</h4>
+        <p>
+          Understand which campaigns and channels are contributing to pipeline
+          and closed-won revenue.
+        </p>
+      </div>
+
+      <div class="integration-feature">
+        <h4>Improved Sales Efficiency</h4>
+        <p>
+          Reduce manual tasks and ensure every lead is followed up with accurate,
+          real-time information.
+        </p>
+      </div>
+    </section> -->
+    </div>
+</div>
+<!-- ******************************** NEW VERSION END ************************************ -->
+
+<!-- ************************************************************* -->
+
+<!-- <section class="usecase-section overview-grid">
+  <div class="overview-left">
+    <div class="overview-side-block">
+      <span>Placeholder</span>
+    </div>
+  </div>
+
+  <div class="overview-right">
+    <h2>Bring Phone Calls Into Your Salesforce CRM</h2>
+    <p>
+      Phone calls are often the most valuable leads — but without CRM integration,
+      they remain disconnected from your sales pipeline.
+    </p>
+
+    <p>
+      TRUE Pulse automatically pushes call data into Salesforce, ensuring
+      every conversation is captured, attributed, and acted upon.
+    </p>
+
+    <ul class="feature-list">
+      <li>Automatically create or update Leads and Contacts</li>
+      <li>Log calls as Activities against Salesforce records</li>
+      <li>Capture marketing attribution alongside sales data</li>
+      <li>Improve follow-ups, conversions, and deal visibility</li>
+    </ul>
+
+    <h2>Bring Phone Calls Into Your Salesforce CRM</h2>
+    <p>
+      Phone calls are often the most valuable leads — but without CRM integration,
+      they remain disconnected from your sales pipeline.
+    </p>
+
+    <p>
+      TRUE Pulse automatically pushes call data into Salesforce, ensuring
+      every conversation is captured, attributed, and acted upon.
+    </p>
+
+    <ul class="feature-list">
+      <li>Automatically create or update Leads and Contacts</li>
+      <li>Log calls as Activities against Salesforce records</li>
+      <li>Capture marketing attribution alongside sales data</li>
+      <li>Improve follow-ups, conversions, and deal visibility</li>
+    </ul>
+  </div>
+</section> -->
+
+
+
+<!-- ******************************************************************** -->
 </main>
 
 <!-- ================= FOOTER ================= -->
 <!-- ================= FOOTER ================= -->
-<footer class="site-footer">
+
+<script src="assets/js/footer.js"></script>
+
+<!-- <footer class="site-footer">
   <div class="footer-container">
-    <!-- Column 1: Product & Education -->
     <div class="footer-column">
       <h4>Product & Learning</h4>
       <ul>
@@ -272,7 +429,6 @@
       </ul>
     </div>
 
-    <!-- Column 2: Use Cases -->
     <div class="footer-column">
       <h4>Use Cases</h4>
       <ul>
@@ -288,7 +444,6 @@
       </ul>
     </div>
 
-    <!-- Column 3: Integrations -->
     <div class="footer-column">
       <h4>Integrations</h4>
       <ul>
@@ -300,7 +455,6 @@
       </ul>
     </div>
 
-    <!-- Column 4: Company -->
     <div class="footer-column">
       <h4>Company</h4>
       <ul>
@@ -311,7 +465,6 @@
       </ul>
     </div>
 
-    <!-- Column 5: Legal & Access -->
     <div class="footer-column">
       <h4>Legal & Access</h4>
       <ul>
@@ -323,7 +476,6 @@
     </div>
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footer-bottom">
     <p>&copy; 2026 TRUE Pulse. All rights reserved.</p>
   </div>
@@ -339,7 +491,7 @@
     src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
     alt="WhatsApp"
   />
-</a>
+</a> -->
 
 
 <script src="assets/js/main.js" defer></script>

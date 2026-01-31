@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Call Tracking & Marketing Attribution</title>
+
+<style>
+.ctiroi-container-wrapper {
+  --primary:#2563eb;
+  --dark:#0f172a;
+  --muted:#475569;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --success:#16a34a;
+  --danger:#dc2626;
+}
+
+.ctiroi-container-wrapper {
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+}
+
+.ctiroi-container {
+  max-width:1200px;
+  margin:auto;
+  padding:70px 32px;
+}
+
+.ctiroi-container h1 { font-size:3rem; margin-bottom:12px; }
+.ctiroi-container h2 { font-size:2.1rem; margin-bottom:20px; }
+.ctiroi-container p { color:var(--muted); line-height:1.6; }
+
+.ctiroi-toggle-wrap {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:30px 0 50px;
+}
+
+.ctiroi-toggle {
+  position:relative;
+  width:60px;
+  height:32px;
+}
+
+.ctiroi-toggle input { display:none; }
+
+.ctiroi-slider {
+  position:absolute;
+  inset:0;
+  background:#c7d2fe;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+.ctiroi-slider:before {
+  content:"";
+  position:absolute;
+  width:24px;
+  height:24px;
+  left:4px;
+  bottom:4px;
+  background:#fff;
+  border-radius:50%;
+  transition:0.3s;
+}
+
+.ctiroi-toggle input:checked + .ctiroi-slider {
+  background:var(--primary);
+}
+
+.ctiroi-toggle input:checked + .ctiroi-slider:before {
+  transform:translateX(28px);
+}
+
+/* CAMPAIGN CARDS */
+
+.ctiroi-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:28px;
+}
+
+.ctiroi-card {
+  background:var(--card);
+  padding:28px;
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+  transition:0.3s;
+  position:relative;
+}
+
+.ctiroi-card:hover {
+  transform:translateY(-6px);
+}
+
+.ctiroi-card h3 {
+  margin-top:0;
+  font-size:1.3rem;
+}
+
+.ctiroi-metrics {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:18px;
+}
+
+.ctiroi-metric {
+  background:#f1f5f9;
+  padding:12px;
+  border-radius:10px;
+  font-size:0.9rem;
+}
+
+.ctiroi-metric strong {
+  display:block;
+  font-size:1.1rem;
+  color:var(--dark);
+}
+
+.ctiroi-badge {
+  position:absolute;
+  top:20px;
+  right:20px;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:0.75rem;
+  font-weight:600;
+}
+
+.ctiroi-good { background:#dcfce7; color:var(--success); }
+.ctiroi-bad { background:#fee2e2; color:var(--danger); }
+
+/* CTA */
+
+.ctiroi-cta {
+  margin-top:90px;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:white;
+  padding:70px 40px;
+  border-radius:22px;
+  text-align:center;
+}
+
+.ctiroi-cta p { color:#e5e7eb; }
+
+.ctiroi-btn {
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 24px;
+  background:white;
+  color:#1e40af;
+  border-radius:12px;
+  font-weight:600;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+  <div class = "ctiroi-container-wrapper">
+<div class="ctiroi-container">
+
+<h1>Why Call Tracking Changes Marketing Decisions</h1>
+<p>
+Most high-intent buyers call — but without call tracking, those conversions are
+invisible. Toggle below to see how decisions change.
+</p>
+
+<div class="ctiroi-toggle-wrap">
+  <strong>Attribution View</strong>
+  <label class="ctiroi-toggle">
+    <input type="checkbox" id="ctiroi-toggle" checked>
+    <span class="ctiroi-slider"></span>
+  </label>
+  <span id="ctiroi-mode">Forms + Calls</span>
+</div>
+
+<div class="ctiroi-grid" id="ctiroi-campaigns"></div>
+
+<div class="ctiroi-cta">
+  <h2>Stop Guessing Which Campaigns Drive Revenue</h2>
+  <p>See exactly which calls convert and scale what works.</p>
+  <a href="#" class="ctiroi-btn">Book a Demo</a>
+</div>
+
+</div>
+</div>
+
+<script>
+const ctiroiCampaigns = [
+  {
+    name:"Brand Search",
+    spend:5000,
+    clicks:2500,
+    forms:50,
+    calls:120,
+    revenueForms:14000,
+    revenueCalls:36000,
+    insight:"High-intent buyers prefer calling from brand searches."
+  },
+  {
+    name:"Generic Search",
+    spend:6000,
+    clicks:3000,
+    forms:90,
+    calls:15,
+    revenueForms:13500,
+    revenueCalls:4000,
+    insight:"Form-heavy but weak call intent and lower close rates."
+  },
+  {
+    name:"Competitor Search",
+    spend:3500,
+    clicks:1800,
+    forms:40,
+    calls:8,
+    revenueForms:6000,
+    revenueCalls:2000,
+    insight:"Low call confidence, better suited for defensive spend."
+  },
+  {
+    name:"Local / Geo Search",
+    spend:4200,
+    clicks:1900,
+    forms:35,
+    calls:60,
+    revenueForms:9000,
+    revenueCalls:22000,
+    insight:"Local intent strongly favors phone calls."
+  },
+  {
+    name:"Facebook Lead Ads",
+    spend:5500,
+    clicks:7200,
+    forms:140,
+    calls:6,
+    revenueForms:9000,
+    revenueCalls:1500,
+    insight:"High volume forms, low sales-quality calls."
+  },
+  {
+    name:"Google Display",
+    spend:4000,
+    clicks:8000,
+    forms:110,
+    calls:5,
+    revenueForms:4500,
+    revenueCalls:800,
+    insight:"Awareness channel with limited call impact."
+  },
+  {
+    name:"YouTube Ads",
+    spend:6200,
+    clicks:5500,
+    forms:55,
+    calls:12,
+    revenueForms:8000,
+    revenueCalls:3000,
+    insight:"Assists conversions but not a core call driver."
+  },
+  {
+    name:"Remarketing",
+    spend:3000,
+    clicks:1200,
+    forms:45,
+    calls:70,
+    revenueForms:10000,
+    revenueCalls:26000,
+    insight:"One of the highest-converting call sources."
+  }
+];
+
+const ctiroiContainer = document.getElementById("ctiroi-campaigns");
+const ctiroiToggle = document.getElementById("ctiroi-toggle");
+const ctiroiMode = document.getElementById("ctiroi-mode");
+
+function ctiroiRender(showCalls) {
+  ctiroiContainer.innerHTML = "";
+  ctiroiMode.innerText = showCalls ? "Forms + Calls" : "Forms Only";
+
+  ctiroiCampaigns.forEach(c => {
+    const leads = showCalls ? c.forms + c.calls : c.forms;
+    const revenue = showCalls ? c.revenueForms + c.revenueCalls : c.revenueForms;
+    const cpl = Math.round(c.spend / leads);
+    const roi = Math.round(((revenue - c.spend) / c.spend) * 100);
+
+    ctiroiContainer.innerHTML += `
+      <div class="ctiroi-card">
+        <span class="ctiroi-badge ${showCalls && c.calls > c.forms ? 'ctiroi-good' : 'ctiroi-bad'}">
+          ${showCalls ? "✅ Full Visibility" : "🚨 Incomplete Data"}
+        </span>
+        <h3>${c.name}</h3>
+        <p>${c.insight}</p>
+
+        <div class="ctiroi-metrics">
+          <div class="ctiroi-metric"><strong>$${c.spend}</strong>Spend</div>
+          <div class="ctiroi-metric"><strong>${c.clicks}</strong>Clicks</div>
+          <div class="ctiroi-metric"><strong>${c.forms}</strong>Form Leads</div>
+          <div class="ctiroi-metric"><strong>${showCalls ? c.calls : 0}</strong>Call Leads</div>
+          <div class="ctiroi-metric"><strong>$${cpl}</strong>Cost / Lead</div>
+          <div class="ctiroi-metric"><strong>$${revenue}</strong>Revenue</div>
+          <div class="ctiroi-metric"><strong>${roi}%</strong>ROI</div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+ctiroiToggle.addEventListener("change", () => ctiroiRender(ctiroiToggle.checked));
+ctiroiRender(true);
+</script>
+
+</body>
+</html>

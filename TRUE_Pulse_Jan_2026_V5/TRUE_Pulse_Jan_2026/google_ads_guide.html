@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Google Ads Call Tracking Integration | TRUE Pulse</title>
+  <meta name="description" content="Integrate TRUE Pulse call tracking with Google Ads. Sync call conversions and attribution data to improve campaign performance.">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TRUE Pulse Google Ads Integration">
+  <meta property="og:description" content="Sync call conversions from TRUE Pulse into Google Ads for accurate campaign tracking.">
+  <meta property="og:url" content="https://truepulse.co.in/google_ads_guide.html">
+  <meta property="og:image" content="https://truepulse.co.in/assets/images/og-image.png">
+
+  <link rel="icon" href="assets/Images/favicon.ico" type="image/x-icon">
+  <link rel="preload" href="assets/css/main.css" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/main.css">
+  </noscript>
+
+  <link rel="canonical" href="https://truepulse.co.in/google_ads_guide.html">
+</head>
+
+<body>
+<!-- ==================== LIGHTBOX FOR IMAGES ==================== -->
+<div class = "lightbox" id = "lightbox">
+  <!-- <div style="text-align: left; color: #fff; display: absolute;top:0;right:10px;">X</div> -->
+  <img class = "lightbox-img" id = "lightbox-img" src="" alt="">
+</div>
+<!-- ================= HEADER & NAVIGATION ================= -->
+
+<script src="assets/js/header.js"></script>
+
+<!-- <header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img 
+        src="assets/Images/tp_logo.svg" 
+        alt=""
+        class="logo-img"
+        onerror="this.hidden=true; this.nextElementSibling.hidden=false;"
+      >
+      <span class="logo-text" hidden>TRUE Pulse</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav">
+      <ul class="nav-menu">
+
+        <li class="has-dropdown">
+          <button class="dropdown-toggle">Services</button>
+          <ul class="dropdown">
+            <li><a href="call_tracking.html">Call Tracking</a></li>
+            <li><a href="form_tracking.html">Form Tracking</a></li>
+            <li><a href="lead_management.html">Lead Management</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <button class="dropdown-toggle">Use Cases</button>
+          <ul class="dropdown">
+            <li><a href="auto_dealers.html">Automotive</a></li>
+            <li><a href="media_agency.html">Media Agencies</a></li>
+            <li><a href="insurance.html">Insurance</a></li>
+            <li><a href="real_estate.html">Real Estate</a></li>
+            <li><a href="health.html">Healthcare & Wellness</a></li>
+            <li><a href="travel.html">Travel & Hospitality</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="home_services.html">Home Services</a></li>
+            <li><a href="other_services.html">Other B2B Services</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <button class="dropdown-toggle">Integrations</button>
+          <ul class="dropdown">
+            <li><a href="salesforce.html">Salesforce</a></li>
+            <li><a href="google_analytics.html">Google Analytics</a></li>
+            <li><a href="google_ads.html">Google Ads</a></li>
+            <li><a href="zapier.html">Zapier</a></li>
+            <li><a href="api.html">API</a></li>
+          </ul>
+        </li>
+
+        <li><a href="pricing.html">Pricing</a></li>
+
+        <li class="has-dropdown">
+          <button class="dropdown-toggle">Our Company</button>
+          <ul class="dropdown">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="partnerships.html">Partner With Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="tel:+917204464475" class="phone-number">+91 72044 64475</a>
+      <a href="https://app.truepulse.co.in/" class="btn btn-login">Login</a>
+      <a href="demo.html" class="btn btn-demo">Get a Demo</a>
+    </div>
+  </div>
+</header> -->
+
+<main>
+<div class="integration-guide-wrapper">
+<!-- HERO -->
+<section class="integration-guide-hero">
+  <div class="integration-guide-hero-inner">
+    <div>
+      <h1>Google Ads Integration with TRUE Pulse</h1>
+      <p>
+        Upload call conversions to Google Ads automatically and measure campaign
+        performance with complete accuracy.
+      </p>
+      <a href="#integration-guide-video">Watch Setup Video</a>
+    </div>
+    <!-- <img src="https://via.placeholder.com/600x420?text=TRUE+Pulse+%2B+Google+Ads" alt="TRUE Pulse Google Ads Integration"> -->
+    <img src="assets/Images/Integrations/integration_guide/google_ads/google-ads-svgrepo-com.svg" alt="TRUE Pulse Google Ads Integration">
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="integration-guide-video-section" id="integration-guide-video">
+  <h2>Google Ads Integration Walkthrough</h2>
+  <div class="integration-guide-video-wrapper">
+    <video controls poster="https://via.placeholder.com/1200x675?text=Google+Ads+Integration+Video">
+      <!-- <source src="google-ads-integration.mp4" type="video/mp4"> -->
+       <source src="assets/Videos/Untitled.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="integration-guide-container">
+
+  <div class="integration-guide-step">
+    <h3>Step 1: Open Google Ads Integration</h3>
+    <ul>
+      <li>Go to <strong>Integrations</strong> in the left navigation menu.</li>
+      <li>Select <strong>Google Ads</strong>.</li>
+    </ul>
+    <div class="integration-guide-step-images">
+      <!-- <img src="https://via.placeholder.com/500x300?text=Integrations+Menu">
+      <img src="https://via.placeholder.com/500x300?text=Google+Ads+Option"> -->
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_1.png">
+      <!-- <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_1_1.png"> -->
+    </div>
+  </div>
+
+  <div class="integration-guide-step">
+    <h3>Step 2: Connect Gmail Account</h3>
+    <ul>
+      <li>Click <strong>Connect</strong>.</li>
+      <li>Choose the Gmail account that owns the Google Ads account.</li>
+    </ul>
+    <div class="integration-guide-step-images">
+      <!-- <img src="https://via.placeholder.com/500x300?text=Google+Login">
+      <img src="https://via.placeholder.com/500x300?text=Select+Gmail"> -->
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_2_1.png">
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_2_2.png">
+    </div>
+  </div>
+
+  <div class="integration-guide-step">
+    <h3>Step 3: Authorize Access</h3>
+    <ul>
+      <li>Click <strong>Authorize</strong> to allow True Pulse to send conversions.</li>
+    </ul>
+    <div class="integration-guide-step-images">
+      <!-- <img src="https://via.placeholder.com/500x300?text=Authorization+Screen">
+      <img src="https://via.placeholder.com/500x300?text=Permissions"> -->
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_3_1.png">
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_3_2.png">
+    </div>
+  </div>
+
+  <div class="integration-guide-step">
+    <h3>Step 4: Select Google Ads Account</h3>
+    <ul>
+      <li>You will be redirected back to True Pulse.</li>
+      <li>Select the Google Ads account linked to the Gmail.</li>
+    </ul>
+    <div class="integration-guide-step-images">
+      <!-- <img src="https://via.placeholder.com/500x300?text=Account+Selection">
+      <img src="https://via.placeholder.com/500x300?text=Customer+ID"> -->
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_4_1.png">
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_4_2.png">
+    </div>
+  </div>
+
+  <div class="integration-guide-step">
+    <h3>Step 5: Reopen Account Selection (If Closed)</h3>
+    <ul>
+      <li>Click <strong>Add Google Ads Account</strong>.</li>
+      <li>Select Gmail → Click <strong>Next</strong>.</li>
+      <li>Choose an Ads account or MCC sub-account.</li>
+    </ul>
+    <div class="integration-guide-step-images">
+      <!-- <img src="https://via.placeholder.com/500x300?text=Add+Account">
+      <img src="https://via.placeholder.com/500x300?text=MCC+Selection"> -->
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_5_1.png">
+    </div>
+  </div>
+
+  <div class="integration-guide-step">
+    <h3>Step 6: Create Mapping</h3>
+    <ul>
+      <li>Select the Service / Business.</li>
+      <li>Name the mapping.</li>
+      <li>Choose <strong>Automatic</strong> or <strong>Manual</strong> push mode.</li>
+      <li>Click <strong>Save</strong>.</li>
+    </ul>
+    <div class="integration-guide-step-images">
+      <!-- <img src="https://via.placeholder.com/500x300?text=Mapping+Form">
+      <img src="https://via.placeholder.com/500x300?text=Integration+Summary"> -->
+      <img src="assets/Images/Integrations/integration_guide/google_ads/googleads_6_1.png">
+    </div>
+  </div>
+
+  <div class="integration-guide-note">
+    <h4>Important Information</h4>
+    <ul>
+      <li>TRUE Pulse creates a required Conversion Action in Google Ads.</li>
+      <li>Do not rename, delete, or modify this Conversion Action.</li>
+      <li>Deleting a mapping stops conversion uploads immediately.</li>
+      <li>Disconnecting Gmail removes all linked Google Ads mappings.</li>
+    </ul>
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="integration-guide-cta">
+  <h2>Start Uploading Google Ads Conversions</h2>
+  <p>Measure true ROI with call-based conversion tracking.</p>
+  <a href="#">Go to Integrations</a>
+</section>
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<script src="assets/js/footer.js"></script>
+<!-- <footer class="site-footer">
+  <div class="footer-container"> -->
+    <!-- Column 1: Product & Education -->
+    <!-- <div class="footer-column">
+      <h4>Product & Learning</h4>
+      <ul>
+        <li><a href="why_phone_calls.html">Why Phone Calls Still Matter</a></li>
+        <li><a href="call_tracking.html">Call Tracking</a></li>
+        <li><a href="form_tracking.html">Form Tracking</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="free_trial.html">Start Free Trial</a></li>
+      </ul>
+    </div> -->
+
+    <!-- Column 2: Use Cases -->
+    <!-- <div class="footer-column">
+      <h4>Use Cases</h4>
+      <ul>
+        <li><a href="auto_dealers.html">Automotive Dealers</a></li>
+        <li><a href="media_agencies.html">Media Agency</a></li>
+        <li><a href="insurance.html">Insurance Businesses</a></li>
+        <li><a href="real_estate.html">Real Estate & Construction</a></li>
+        <li><a href="health.html">Healthcare & Wellness</a></li>
+        <li><a href="travel.html">Travel & Hospitality</a></li>
+        <li><a href="education.html">Education Industry</a></li>
+        <li><a href="home_services.html">Home Services</a></li>
+        <li><a href="other_services.html">Other B2B Services</a></li>
+      </ul>
+    </div> -->
+
+    <!-- Column 3: Integrations -->
+    <!-- <div class="footer-column">
+      <h4>Integrations</h4>
+      <ul>
+        <li><a href="salesforce.html">Salesforce</a></li>
+        <li><a href="google_analytics.html">Google Analytics</a></li>
+        <li><a href="google_ads.html">Google Ads</a></li>
+        <li><a href="zapier.html">Zapier</a></li>
+        <li><a href="api.html">API</a></li>
+      </ul>
+    </div> -->
+
+    <!-- Column 4: Company -->
+    <!-- <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="partnerships.html">Partner With Us</a></li>
+      </ul>
+    </div> -->
+
+    <!-- Column 5: Legal & Access -->
+    <!-- <div class="footer-column">
+      <h4>Legal & Access</h4>
+      <ul>
+        <li><a href="https://app.truepulse.co.in/">Login</a></li>
+        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+        <li><a href="refund_policy.html">Refund Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div> -->
+
+  <!-- Footer Bottom -->
+  <!-- <div class="footer-bottom">
+    <p>&copy; 2026 TRUE Pulse. All rights reserved.</p>
+  </div>
+</footer> -->
+
+<!-- <a
+  href="https://wa.me/917204464475"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Chat with us on WhatsApp"
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+  />
+</a> -->
+<script src="assets/js/main.js" defer></script>
+<!-- <script>
+  document.querySelectorAll('.integration-guide-step-images img').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').style.display = 'flex';
+  });
+});
+
+document.getElementById('lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').style.display = 'none';
+});
+</script> -->
+</body>
+</html>

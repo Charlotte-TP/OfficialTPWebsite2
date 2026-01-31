@@ -139,4 +139,91 @@ document.head.appendChild(style);
   const interval = setInterval(swapText, DISPLAY_TIME);
 })();
 
+// ================================
+// About text typewritter effect
+// ================================
+// const words = ["Enterprise-Grade Call Intelligence for Data-driven Businesses. "]
+// let wordIndex = 0;
+// let charIndex = 0;
+// let isDeleting = false;
+// const typingSpeed = 100;
+// const deletingSpeed = 60;
+// const delayBetweenWords = 1500;
 
+// const typingElement = document.querySelector(".about-hero-title");
+
+// function typeEffect() {
+//   const currentWord = words[wordIndex];
+
+//   if (!isDeleting) {
+//     typingElement.textContent = currentWord.substring(0, charIndex++);
+//   } else {
+//     typingElement.textContent = currentWord.substring(0, charIndex--);
+//   }
+
+//   let speed = isDeleting ? deletingSpeed : typingSpeed;
+
+//   if (charIndex <= currentWord.length) {
+//     setTimeout(typeEffect, speed);
+//   }
+// }
+
+// typeEffect();
+
+const typingElement = document.querySelector(".about-hero-title");
+
+if (typingElement) {
+  const words = [
+    "Enterprise-Grade Call Intelligence for Data-driven Businesses. "
+  ];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const typingSpeed = 100;
+  const deletingSpeed = 60;
+
+  function typeEffect() {
+    const currentWord = words[wordIndex];
+
+    if (!isDeleting) {
+      typingElement.textContent = currentWord.substring(0, charIndex++);
+    } else {
+      typingElement.textContent = currentWord.substring(0, charIndex--);
+    }
+
+    const speed = isDeleting ? deletingSpeed : typingSpeed;
+
+    if (charIndex <= currentWord.length) {
+    setTimeout(typeEffect, speed);
+  }
+  }
+
+  typeEffect();
+}
+
+// =====================================
+// INTEGRATION GUIDE PAGE LIGHTBOX FOR IMAGES
+// =====================================
+
+  const lightboxImg = document.getElementById('lightbox-img');
+    const lightbox = document.getElementById('lightbox');
+  document.querySelectorAll('.integration-guide-step-images img').forEach(img => {
+  img.addEventListener('click', () => {
+    
+    // document.getElementById('lightbox-img').src = img.src;
+    // document.getElementById('lightbox').style.display = 'flex';
+    if (lightboxImg && lightbox) {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    }
+  });
+});
+if (lightbox) {
+// document.getElementById('lightbox').addEventListener('click', () => {
+//   document.getElementById('lightbox').style.display = 'none';
+// });
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+}); 
+}
